@@ -121,6 +121,10 @@ a {
     display: flex; 
     justify-content: center;
     align-items: center;
+    animation-name: amoeba-animation, blur-background;
+    animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
 }
 
 .title-grid-child {
@@ -131,12 +135,8 @@ a {
 
 /* title variable animation */
 
-.letter-box:hover {
-    animation-name: amoeba-animation, blur-background;
-    animation-duration: 1.5s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-}
+/* .letter-box:hover {
+} */
 
 /* title description */
 
