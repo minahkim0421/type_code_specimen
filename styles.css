@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: gray;
+}
+
+.container {
+    height: 10000px;
+}
+
+header {
+    padding: 10px;
+    height: 40px;
+    text-align: end;
+}
+
+button {
+    background-color: black;
+}
+
+a {
+    color: white;
+}
+
+@font-face {
+    font-family: "AmoebaDanceRegularVF";
+    src: url(assets/AmoebaDanceRegularVF.woff2);
+}
+
+.amoeba-dance-title {
+    font-family: "AmoebaDanceRegularVF", serif;
+    font-variation-settings: "DNCE" 0;
+    font-size: 100px;
+}
+
+@font-face {
+    font-family: "Bagnard";
+    src: url(assets/Bagnard.otf);
+}
+
+.bagnard-regular {
+    font-family: "Bagnard", serif;
+    font-size: 18px;
+}
+
+.title-text {
+    position: relative;
+    z-index: 1;
+    top: 200px;
+    text-align: center;
+    color: white;
+    font-size: 120px;
+    letter-spacing: 4.4rem;
+    /* line-height: 1.3em; */
+}
+
+.letter-box {
+    width: 110px;
+    height: 110px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.title-line-grid {
+    margin: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
