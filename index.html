@@ -15,7 +15,7 @@
             <span>
 
             </span>
-            <a href="/assets/AmoebaDanceRegularVF.ttf" download>
+            <a href="assets/AmoebaDanceRegularVF.ttf" download>
                 <p> → download this font</p>
             </a>
         </button>
@@ -198,9 +198,9 @@
             </div>
 
             <div class="slider bagnard-regular">
-                <label for="dance">Dance: <span id="current-dance">0</span></label>
+                <label for="dance">Dance: <span id="current-dance1">0</span></label>
                 <br>
-                <input name="dance" type="range" min="0" max="1000" value="0" oninput="setDance(this.value)">
+                <input name="dance" type="range" min="0" max="1000" value="0" oninput="setDance1(this.value)">
             </div>
         </div>
 
@@ -300,6 +300,14 @@
 
     <script>
         var root = document.querySelector('html');
+
+        // Change the variable axes value
+        var currentDance1 = document.querySelector('#current-dance1');
+        function setDance1(newDance) {
+            console.log(newDance);
+            currentDance1.innerText = newDance;
+            root.style.setProperty('--dance1', newDance);
+        }
 
         // Change the variable axes value
         var currentDance = document.querySelector('#current-dance');
