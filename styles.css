@@ -5,11 +5,11 @@
 }
 
 body {
-    background-color: gray;
-}
-
-.container {
-    height: 10000px;
+    background-color: #151717;
+    height: 6000px;
+    background-image: url(assets/Figure+12.1a+The+functions+of+cell+division_+Reproduction.jpg);
+    background-repeat: repeat;
+    background-size: contain;
 }
 
 header {
@@ -19,16 +19,43 @@ header {
 }
 
 button {
-    background-color: black;
+    padding: 20px;
+    height: 20px;
+    width: 250px;
+    background-color: #151717;
+    background: none;
+    border: none;
 }
 
 a {
-    color: white;
+    color: aliceblue;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+    min-height: calc(100vh + 4900px);
+    
 }
 
 @font-face {
     font-family: "AmoebaDanceRegularVF";
     src: url(assets/AmoebaDanceRegularVF.woff2);
+}
+
+.amoeba-dance {
+    font-family: "AmoebaDanceRegularVF", serif;
+    font-variation-settings: "DNCE" var(--dance);
+}
+
+.amoeba-dance-alt {
+    font-family: "AmoebaDanceRegularVF", serif;
+    font-variation-settings: "DNCE" var(--dance);
+	font-size: var(--font-size);
 }
 
 .amoeba-dance-title {
@@ -47,28 +74,171 @@ a {
     font-size: 18px;
 }
 
+@keyframes amoeba-animation {
+    0% {
+        font-variation-settings: "DNCE" 0;
+    }
+    50% {
+        font-variation-settings: "DNCE" 1000;
+    }
+    100% {
+        font-variation-settings: "DNCE" 0;
+    }
+}
+
+@keyframes blur-background {
+    0% {
+        background-color: none;
+    }
+    50% {
+        background-color: #151717;
+    }
+    100% {
+        background-color: none;
+    }
+}
+
+/* title grid and boxes */
+.title-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
 .title-text {
-    position: relative;
-    z-index: 1;
-    top: 200px;
     text-align: center;
     color: white;
     font-size: 120px;
     letter-spacing: 4.4rem;
-    /* line-height: 1.3em; */
 }
 
 .letter-box {
-    width: 110px;
-    height: 110px;
+    width: 120px;
+    height: 120px;
     border: 1px solid white;
     border-radius: 50%;
 }
 
-.title-line-grid {
-    margin: 50px;
+.title-grid-child {
     display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 30px;
+    margin: 0;
+}
+
+/* title variable animation */
+
+.letter-box:hover {
+    animation-name: amoeba-animation, blur-background;
+    animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+/* title description */
+
+.title-description {
+    color: white; 
+    font-size: 24px;
+    text-align: start;
+    max-width: 750px;
+    padding-top: 200px;
+    line-height: 1.2em;
+    margin-bottom: 300px; 
+}
+
+/* the glyphs section */
+
+.glyphs-grid {
+    display: grid;
+    width: 60vw;
+    grid-template-columns: repeat(9, 1fr);
+    color: aliceblue;
+    font-size: 100px;
+    gap: 10px;
+}
+
+.glyphs-grid .grid-item {
+    padding-bottom: 10px;
+    font-family: "AmoebaDanceRegularVF", serif;
+    font-variation-settings: "DNCE" 0;
+    font-size: 100px;
+}
+
+.glyphs-grid .grid-item:hover {
+    scale: 150%;
+    cursor: url(assets/mag-cursor-tp.png), auto;
+    /* cursor: cell; */
+}
+
+.slider {
+    padding-top: 100px;
+    font-size: 24px;
+    grid-row-start: 6;
+    grid-column: span 5 / 8;
+}
+
+input {
+    width: 30vw;
+    /* color: whitesmoke; */
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: whitesmoke;
+    height: 5px;
+}
+   
+input[type="range"]::-moz-range-track {
+    background: #151717;
+    height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    background: white;
+    margin-top: -5px;
+    border-radius: 50%;
+}
+
+/* the cell division table section */
+
+.table-grid {
+    padding-top: 400px;
+    display: grid;
+    width: 40vw;
+    grid-template-columns: 1fr 1fr;
+    color: aliceblue;
+    font-size: 24px;
+    gap: 10px;
+}
+
+.table-grid .grid-item {
+    padding-bottom: 10px;
+    font-family: "AmoebaDanceRegularVF", serif;
+    font-variation-settings: "DNCE" 0;
+}
+
+.amoeba-dance-gigantic {
+    font-size: 500px;
+    font-family: "AmoebaDanceRegularVF", serif;
+}
+
+/* the paragraph text input section */
+
+.normtext {
+    width: 60vw;
+    height: 50vh;
+    margin-top: 100px;
+    font-size: 14px;
+    color: white;
+    overflow-y: scroll;
+    scrollbar-width: 5px;
+}
+
+.paragraph-slider {
+    padding-top: 150px;
+    font-size: 18px;
+    color: white;
 }
