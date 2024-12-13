@@ -6,7 +6,7 @@
 
 body {
     background-color: #151717;
-    height: 6000px;
+    height: 5000px;
     background-image: url(assets/cell+division+dark.jpg);
     background-repeat: repeat;
     background-size: contain;
@@ -36,9 +36,9 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    height: 100vh;
-    min-height: calc(100vh + 4900px);
+    /* gap: 20px; */
+    /* height: 100vh; */
+    min-height: calc(100vh + 3900px);
     
 }
 
@@ -114,8 +114,8 @@ a {
 }
 
 .letter-box {
-    width: 120px;
-    height: 120px;
+    min-width: 120px;
+    min-height: 120px;
     border: 2px solid white;
     border-radius: 50%;
     display: flex; 
@@ -125,6 +125,7 @@ a {
 
 .title-grid-child {
     display: flex;
+    justify-content: center;
     gap: 30px;
     margin: 0;
 }
@@ -142,19 +143,20 @@ a {
 
 .title-description {
     color: white; 
-    font-size: 24px;
+    font-size: calc(12px + 1vw);
     text-align: start;
     max-width: 750px;
-    padding-top: 200px;
+    padding-top: 20%;
     line-height: 1.2em;
-    margin-bottom: 300px; 
+    margin-bottom: 300px;
+    text-wrap: pretty; 
 }
 
 /* the glyphs section */
 
 .glyphs-grid {
     display: grid;
-    width: 60vw;
+    max-width: 60vw;
     grid-template-columns: repeat(9, 1fr);
     color: aliceblue;
     font-size: 100px;
@@ -174,35 +176,44 @@ a {
     /* cursor: cell; */
 }
 
+.slidecontainer {
+    margin-top: 200px;
+    width: 300%;    
+}
+
 .slider {
-    padding-top: 100px;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 5px;
+    background: lightgray;
+    outline: none;
+    /* padding-top: 100px; */
     font-size: 24px;
     grid-row-start: 6;
     grid-column: span 5 / 8;
 }
 
-input {
-    width: 30vw;
-    /* color: whitesmoke; */
-}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 15px; 
+    height: 15px; 
+    border-radius: 50px;
+    background: white; 
+    cursor: pointer;
+  }
+  
+.slider::-moz-range-thumb {
+    width: 30px;
+    height: 25px;
+    background: red; 
+    cursor: pointer;
+  }
 
-input[type="range"]::-webkit-slider-runnable-track {
-    background: whitesmoke;
-    height: 5px;
-}
-   
 input[type="range"]::-moz-range-track {
     background: #151717;
-    height: 5px;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 20px;
-    width: 20px;
-    background: white;
-    margin-top: -5px;
-    border-radius: 50%;
+    height: 10px;
 }
 
 /* the cell division table section */
@@ -225,17 +236,17 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .amoeba-dance-gigantic {
-    font-size: 500px;
+    font-size: 300px;
     font-family: "AmoebaDanceRegularVF", serif;
 }
 
 /* the paragraph text input section */
 
 .normtext {
-    width: 60vw;
-    height: 50vh;
+    max-width: 70vw;
+    height: 40vh;
     margin-top: 100px;
-    font-size: 14px;
+    font-size: 32px;
     color: white;
     overflow-y: scroll;
     scrollbar-width: 5px;
@@ -246,3 +257,47 @@ input[type="range"]::-webkit-slider-thumb {
     font-size: 18px;
     color: white;
 }
+
+/* for responsive screen sizes */
+
+@media screen and (max-width: 1100px) {
+    .normtext {
+        max-width: 90vw;
+    }
+    .title-grid {
+        text-wrap: wrap;
+        margin: 50px;
+    }
+    .title-grid-child {
+        gap: 0;
+    }
+    .title-text {
+        font-size: 8vw;
+        text-wrap: wrap;
+        width: 5rem;
+    } 
+    .letter-box {
+        letter-spacing: 2rem;
+        min-width: 4rem;
+        width: 16px;
+        min-height: 2rem;
+    }
+    .title-description {
+        margin: 5rem;
+        padding: 3rem;
+        padding-top: 2rem;
+        text-wrap: pretty;
+        text-align: center;
+    }
+    .glyphs-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .slidecontainer {
+        margin-top: 10vh;
+        grid-column: span 1 / 2;
+    }
+    .paragraph-slider {
+        display: flex;
+        justify-content: center;
+    }
+  }
